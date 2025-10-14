@@ -1,0 +1,82 @@
+body {
+    font-family: system-ui, sans-serif;
+    background-color: #f3faff;
+    margin: 2rem;
+    color: #4a2e00;
+    font-size: 15px;
+}
+
+h1, h2 {
+    color: #1477d4;
+    margin-bottom: 1rem;
+}
+h2{
+        
+    font-size: 18px;
+    font-style: italic;
+}
+a {
+    display: block;
+   
+
+    text-decoration: none;
+    color: #2080db;
+    font-weight: bold;
+
+
+}
+.disclaimer{
+    font-size: 12px;
+}
+span{
+    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+      display: inline-block;
+}
+span::first-letter{
+    color: #1f75c6;
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+}
+
+a:hover {
+    background-color: #bddfff;
+}
+
+form {
+    max-width: 480px;
+    background: #fff3e6;
+    padding: 1rem;
+    border: 1px solid #ffc299;
+    margin-top: 2rem;
+    border-radius: 6px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem;
+    border: 1px solid #ffbb80;
+    border-radius: 4px;
+    background-color: #fffaf5;
+    color: #4a2e00;
+}
+
+input[type="submit"], button {
+    padding: 0.5rem 1rem;
+    background-color: #ff8c1a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #e67300;
+}
