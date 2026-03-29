@@ -1,0 +1,144 @@
+/* --- BAZOWE USTAWIENIA (TRYB JASNY) --- */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    max-width: 800px; /* Ograniczenie szerokości by czytało się lepiej */
+    margin: 0 auto;
+    padding: 2rem;
+    font-size: 16px;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- NAGŁÓWKI I PRZYCISK --- */
+h1, h2 {
+    text-align: center; /* Wyśrodkowanie */
+    margin: 0;
+}
+span {
+    color: #529aff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #111111;
+    transition: color 0.3s ease;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #666666;
+    margin-bottom: 3rem;
+    transition: color 0.3s ease;
+}
+
+#theme-toggle {
+    display: block;
+    margin: 0 auto 2rem auto;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #f5f5f5;
+}
+
+/* --- LISTY --- */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 2.5rem;
+}
+
+ul span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: #222222;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+li {
+    margin-bottom: 1.2rem;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: 500;
+    margin-top: 4px;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #004499;
+    text-decoration: underline;
+}
+
+/* --- STOPKA I ZASTRZEŻENIA --- */
+.disclaimer {
+    font-size: 0.85rem;
+    color: #777777;
+    border-top: 1px solid #eeeeee;
+    padding-top: 1rem;
+    margin-top: 3rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #999999;
+    margin-top: 2rem;
+    transition: color 0.3s ease;
+}
+
+/* --- TRYB CIEMNY (DARK THEME) --- */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme h1 { color: #ffffff; }
+body.dark-theme h2 { color: #aaaaaa; }
+
+body.dark-theme #theme-toggle {
+    border-color: #444444;
+}
+
+body.dark-theme #theme-toggle:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme ul span {
+    color: #ffffff;
+    border-bottom-color: #333333;
+}
+
+body.dark-theme a {
+    color: #66b2ff;
+}
+
+body.dark-theme a:hover {
+    color: #99ccff;
+}
+
+body.dark-theme .disclaimer {
+    color: #888888;
+    border-top-color: #333333;
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">	
+<title>prywatnosc.xyz - Lista narzędzi które szanują twoją prywatność</title>			
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="Lista narzędzi które szanują twoją prywatność - cyberbezpieczeństwo">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+    
+<style>
+#password-banner {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #303030;
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    width: 90%;
+    max-width: 300px;
+    z-index: 9999;
+    text-align: center;
+}
+
+#password-banner p {
+    margin: 0 0 10px 0;
+}
+
+#password-banner a {
+    color: #529aff
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#password-banner .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: #529aff;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#password-banner .btn:hover {
+    background: #4b8ae3;
+}
+
+#password-banner button.close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* responsywność */
+@media (max-width: 480px) {
+    #password-banner {
+        right: 10px;
+        left: 10px;
+        top: 10px;
+        max-width: none;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div id="password-banner" style="display:none;">
+    <button class="close" onclick="closeBanner()">×</button>
+    <p>Nie wiesz czy twoje hasło jest wystarczająco silne?</p>
+    <p><a href="#tester">Sprawdź nasz tester haseł!</a></p>
+    <a href="#tester" class="btn">Przejdź do testera</a>
+</div>
+
+<script>
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+}
+
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(cname) === 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return "";
+}
+
+function closeBanner() {
+    document.getElementById("password-banner").style.display = "none";
+    setCookie("bannerClosed", "true", 30);
+}
+
+window.onload = function() {
+    if (getCookie("bannerClosed") !== "true") {
+        document.getElementById("password-banner").style.display = "block";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <button id="theme-toggle">☀️ Tryb jasny</button>
+
+    <h1><span>P</span>RYWATNOSC.XYZ</h1>
+    <h2>lista narzędzi które szanują twoją prywatność!</h2>
+
+    <ul id="vpn">
+        <span>VPN</span>
+        <li>Proton - VPN, mail, dysk i więcej polecanych usług dbających o prywatność<a href="https://proton.me/" target="_blank">https://proton.me/</a></li>
+        <li>Mullvad VPN - polecany VPN z polityką no-logs<a href="https://mullvad.net/pl" target="_blank">https://mullvad.net/</a></li>
+    </ul>
+
+    <ul id="komunikatory">
+        <span>Komunikatory</span>
+        <li>Signal - najpopularniejszy bezpieczny komunikator z szyfrowaniem end-to-end<a href="https://signal.org/" target="_blank">https://signal.org/</a></li>
+        <li>Session - bardzo prywatny komunikator end-to-end<a href="https://getsession.org/" target="_blank">https://getsession.org/</a></li>
+        <li>Telegram - dosyć prywatny komunikator ale z pewnymi ograniczeniami <a href="https://telegram.org/" target="_blank">https://telegram.org/</a></li>
+    </ul>
+
+    <ul id="systemy">
+        <span>Systemy operacyjne</span>
+        <li>Tails OS - Bezpieczny przenośny system przyjazny dla początkujących, uruchamiany z pendrive, którego ruch idzie przez sieć TOR, nie zostawia żadnych śladów na urządzeniu.<a href="https://tails.net/" target="_blank">https://tails.net/</a></li>
+        <li>Whonix - Bezpieczny system działający w postaci prekonfigurowanych obrazów maszyn wirtualnych. cały ruch idzie przez tor<a href="https://www.whonix.org/" target="_blank">https://www.whonix.org/</a></li>
+        <li>Qubes os - Bezpieczny system dla zaawansowanych użytkowników<a href="https://www.qubes-os.org/" target="_blank">https://www.qubes-os.org/</a></li>
+        <li>Debian - uniwersalny system dbający o bezpieczeństwo, ale nie tak bardzo jak powyższe<a href="https://www.debian.org/" target="_blank">https://www.debian.org/</a></li>
+    </ul>
+
+    <ul id="menedzery">
+        <span>Menedżery haseł</span>
+        <li>1Password - Popularny bezpieczny ale PŁATNY menedżer haseł <a href="https://1password.com/" target="_blank">https://1password.com/</a></li>
+        <li>BitWarden - menedżer typu open-source, dostępny w chmurze lub hostowany lokalnie<a href="https://bitwarden.com/" target="_blank">https://bitwarden.com/</a></li>
+        <li>KeePassXC - open-source menedżer działający lokalnie<a href="https://keepassxc.org/" target="_blank">https://keepassxc.org/</a></li>
+        <li>ProtonPass - menedżer od producenta popularngo VPN'a<a href="https://proton.me/pass" target="_blank">https://proton.me/pass</a></li>
+    </ul>
+
+    <ul id="przegladarki">
+        <span>Przeglądarki i rzeczy z nimi związane</span>
+        <li>Tor Browser - Bezpieczna przeglądarka która umożliwia dostęp zarówno do stron clearnetowych, jak i tych w sieci tor. <a href="https://www.torproject.org/download/" target="_blank">https://www.torproject.org/download/</a></li>
+        <li>Mozilla Firefox - sprawdzona przeglądarka o otwartym kodzie źródłowym, dbająca o prywatność<a href="https://www.firefox.com/pl/" target="_blank">https://www.firefox.com/pl/</a></li>
+        <li>DuckDuckGo - Popularna bezpieczna wyszukiwarka będąca domyślną wyszukiwarką w przeglądarkach na systemie Linux.<a href="https://duckduckgo.com/" target="_blank">https://duckduckgo.com/</a></li>
+        <li>Brave - Bezpieczna przeglądarka oparta na silniku chromium blokująca reklamy i skrypty śledzące<a href="https://brave.com/" target="_blank">https://brave.com/</a></li>
+    </ul>
+
+    <ul id="rozszerzenia">
+        <span>Rozszerzenia przeglądarek</span>
+        <li>uBlock Origin – popularny i skuteczny bloker reklam <a href="https://ublockorigin.com/" target="_blank">https://ublockorigin.com/</a></li>
+        <li>HTTPS Everywhere – rozszerzenie wymuszające szyfrowane połączenia <a href="https://www.eff.org/https-everywhere" target="_blank">https://www.eff.org/https-everywhere</a></li>
+        <li>NoScript – rozszerzenie kontrolujące skrypty JavaScript <a href="https://noscript.net/" target="_blank">https://noscript.net/</a></li>
+        <li>Decentraleyes – rozszerzenie chroniące przed zewnętrznymi CDN <a href="https://decentraleyes.org/" target="_blank">https://decentraleyes.org/</a></li>
+    </ul>
+
+    <ul id="kryptowaluty">
+        <span>Kryptowaluty</span>
+        <li>Monero – kryptowaluta która skupia się na prywatności i decentralizacji. <a href="https://www.getmonero.org/" target="_blank">https://www.getmonero.org/</a></li>
+        <li>Monero GUI Wallet - Oficjalny portfel kryptowalutowy do kryptowaluty Monero <a href="https://www.getmonero.org/downloads/#gui" target="_blank">https://www.getmonero.org/downloads/#gui</a></li>
+        <li>Monero CLI Wallet – występujący TYLKO W WERSJI TERMINALOWEJ oficjalny portfel kryptowalutowy do kryptowaluty Monero <a href="https://www.getmonero.org/downloads/#cli" target="_blank">https://www.getmonero.org/downloads/#cli</a></li>
+        <li>Feather Wallet – polecany portfel do kryptowaluty Monero <a href="https://featherwallet.org/" target="_blank">https://featherwallet.org/</a></li>
+    </ul>
+
+    <ul id="wiedza">
+        <span>Wiedza</span>
+        <li>Hitchhiker's Guide – potężna darmowa baza wiedzy z cyberbezpieczeństwa<a href="https://anonymousplanet.org/" target="_blank">https://anonymousplanet.org/</a></li>
+        <li>Not The Hidden Wiki - otwarty darmowy zbiór z wartościową wiedzą z bezpieczeństwa w sieci. <a href="https://notthehiddenwiki.com/" target="_blank">https://notthehiddenwiki.com/</a></li>
+        <li>NetworkChuck – kanał Youtube przedstawiający tematy z bezpieczeństwa IT w przystępny sposób<a href="https://www.youtube.com/@NetworkChuck" target="_blank">https://www.youtube.com/@NetworkChuck</a></li>
+        <li>David Bombal – kanał Youtube z praktycznymi filmami edukacyjnymi z bezpieczeństwa IT.<a href="https://www.youtube.com/davidbombal" target="_blank">https://www.youtube.com/davidbombal</a></li>
+    </ul>
+
+    <ul id="szyfrowanie">
+        <span>Szyfrowanie</span>
+        <li>Veracrypt – Darmowe oprogramowanie open-source do szyfrowania danych.<a href="https://veracrypt.io/" target="_blank">https://veracrypt.io/</a></li>
+        <li>Kleopatra - Darmowy otwartoźródłowy program do zarządzania certyfikatami czy szyfrowania wiadomości. <a href="https://www.openpgp.org/software/kleopatra/" target="_blank">https://www.openpgp.org/software/kleopatra/</a></li>
+        <li>7zip – program do archiwizacji plików umożliwiający szyfrowanie archiwów za pomocą hasła.<a href="https://www.7-zip.org/" target="_blank">https://www.7-zip.org/</a></li>
+    </ul>
+
+    <p class="disclaimer">W obecnych czasach coraz trudniej o prywatność w sieci, często jest ona osłabiana przez praktyki stosowane przez różne firmy świadczące usługi w internecie. Istnieją jednak rozwiązania, które mogą pomóc w zwiększeniu tej prywatności. <br><br>Dlatego powstała ta strona, aby zebrać w jednym miejscu przydatne narzędzia respektujące prywatność. Jest to subiektywna lista bazowana na opiniach innych ludzi i doświadczeniach własnych autora strony. Strona nie zawiera wszystkich narzędzi, które są uznawane jako bezpieczne, a jedynie wybrane z nich. Autor strony nie odpowiada za umieszczone na niej linki do stron trzecich, nie jest z nimi w żaden sposób powiązany i nie gwarantuje poprawności działania, a strona zawiera jedynie odnośniki do danych serwisów. Żaden z prezentowanych materiałów nie jest hostowany na serwerach prywatnosc.xyz.</p>
+     <center><a href="https://www.pajacyk.pl/" target="blank"><img src="pajacyk.jpg" width="146px" height="100px"></a></center>
+    <p class="disclaimer">Kontakt z autorem strony jest możliwy poprzez adres email: <strong>prywatnoscxyz@protonmail.com</strong></p>
+
+    <footer>&copy; 2025-2026 - prywatnosc.xyz</footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+        }
+
+        const savedTheme = getCookie('theme');
+
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            themeToggle.textContent = '🌙 Tryb ciemny';
+        } else {
+            // Jeśli ciasteczko nie istnieje (lub wynosi 'dark'), domyślnie zostaje dark-theme z HTML
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️ Tryb jasny';
+        }
+
+   
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️ Tryb jasny';
+                setCookie('theme', 'dark', 365); // Zapisuje ciasteczko na 365 dni
+            } else {
+                themeToggle.textContent = '🌙 Tryb ciemny';
+                setCookie('theme', 'light', 365);
+            }
+        });
+    </script>
+
+</body>
+</html>
