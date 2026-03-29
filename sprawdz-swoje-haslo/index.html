@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sprawdź siłę swojego hasła! - prywatnosc.xyz</title>
+
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+
+<style>
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif;
+  background:#1d1e1f;
+  color: #eaeaf0;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.card {
+  width: 100%;
+  max-width: 560px;
+  background: #202326;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+h1 { font-size: 1.2rem; margin: 0 0 8px; }
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #23275a;
+  font-size: .75rem;
+  margin-left: 6px;
+}
+p.note { font-size: .9rem; color: #b8bbff; margin-top: 0; }
+label { display:block; margin-top: 16px; font-weight: 600; }
+input[type="password"], input[type="text"]{
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #2a2e4a;
+  background: #0f1220;
+  color: #fff;
+  font-size: 1rem;
+}
+button.toggle {
+  margin-top:8px;
+  font-size:.85rem;
+  background:none;
+  border:1px solid #2a2e4a;
+  color:#b8bbff;
+  padding:4px 8px;
+  border-radius:6px;
+  cursor:pointer;
+}
+.meter {
+  height: 10px;
+  background: #2a2e4a;
+  border-radius: 999px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+.meter > div {
+  height: 100%;
+  width: 0%;
+  transition: width .25s ease;
+}
+.feedback { margin-top: 12px; font-size: .95rem; }
+ul { padding-left: 18px; }
+.ok { color: #9cffb0; }
+.warn { color: #ffd479; }
+.bad { color: #ff9aa2; }
+.footer {
+  margin-top: 18px;
+  font-size: .8rem;
+  color: #9aa0ff;
+  opacity: .9;
+}
+.practices {
+  margin-top:18px;
+  background:#272a2e;
+  padding:14px;
+  border-radius:10px;
+}
+.practices h3 { margin-top:0; font-size:1rem; color:#9aa0ff; }
+.practices ul { list-style:none; padding:0; margin:0; }
+.practices li::before { content:"✅ "; }
+a { color:#b8bbff; cursor:pointer; font-size:.85rem; text-decoration:underline; }
+
+.modal {
+  display:none;
+  position:fixed;
+  top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+.modal-content {
+  background:#171a2b;
+  padding:20px;
+  border-radius:10px;
+  max-width:500px;
+  max-height:80%;
+  overflow:auto;
+  color:#eaeaf0;
+}
+.modal-close {
+  float:right;
+  cursor:pointer;
+  color:#b8bbff;
+  font-weight:bold;
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Sprawdź siłę swojego hasła! - Tester haseł<span class="badge">prywatnosc.xyz</span></h1>
+<p class="note">Analiza odbywa się lokalnie w przeglądarce. Brak logów</p>
+
+<label for="pwd">Hasło</label>
+<input id="pwd" type="password" autocomplete="new-password">
+<button type="button" class="toggle" id="toggle">Pokaż hasło</button>
+
+<div class="meter"><div id="bar"></div></div>
+<div id="fb" class="feedback"></div>
+
+<div class="practices">
+<h3>Najlepsze praktyki</h3>
+<ul>
+<li>Używaj długich fraz (min. 12–16 znaków)</li>
+<li>Nie używaj tego samego hasła w wielu serwisach</li>
+<li>Unikaj słów, sekwencji i powtórzeń</li>
+<li>Używaj menedżera haseł</li>
+<li>Rozważ passphrase zamiast krótkiego hasła</li>
+</ul>
+</div>
+
+<p><a id="privacy">Polityka prywatności</a></p>
+
+<div class="footer">Strona jest tylko poglądowa i powyższy tester haseł nie powinien być traktowany jako wzór, a jedynie poglądowa ocena siły hasła. Strona nie zapisuje wpisywanych haseł. Ale tak jak z każdą rzeczą w internecie - jeśli nie ufasz, nie musisz z niej korzystać! jest wiele innych popularnych narzędzi tego typu. Serwis nie zapisuje żadnych wpisywanych danych i nie ponosi za nie odpowiedzialności.</div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="modal-close" id="close">&times;</span>
+    <h3>Polityka prywatności</h3>
+    <p>Hasło nigdy nie opuszcza Twojej przeglądarki. Strona nie używa cookies, logów ani sieci. Wszystkie analizy odbywają się lokalnie.</p>
+    <p>Wynik analizy ma charakter informacyjny i nie stanowi gwarancji bezpieczeństwa.</p>
+    
+     <p>Twoje hasło nigdy nie jest wysyłane ani przechowywane. Wszystkie obliczenia są wykonywane lokalnie w przeglądarce. Serwis nie używa cookies, nie śledzi użytkownika i nie zapisuje żadnych danych.</p>
+      <p>Nie gromadzimy żadnych informacji o użytkownikach ani ich aktywności. Wszystkie dane pozostają wyłącznie na Twoim urządzeniu.</p>
+      <p>Serwis nie łączy się z żadnymi serwerami zewnętrznymi, nie wykonuje żadnych zapytań sieciowych i nie zapisuje logów.</p>
+      <p>Zalecamy używanie długich, losowych fraz lub menedżerów haseł. Analiza hasła odbywa się tylko w przeglądarce i nie jest nigdzie przechowywana.</p>
+
+  </div>
+</div>
+<script src="main.js">
+
+</script>
+</body>
+</html>
+
